@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "AfesDev",
-    "base_url": "https://tu-dominio.com",
+    "base_url": "https://afesdev.site",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",

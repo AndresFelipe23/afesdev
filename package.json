@@ -10,6 +10,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "start": "node server.js",
     "check": "astro check",
     "format": "prettier -w ."
   },

@@ -1,126 +1,188 @@
-<h1 align=center>Pinwheel Astro</h1>
-<p align=center>Pinwheel is a free multipurpose SaaS theme built with Astro, TailwindCSS, and TypeScript with 17+ pre-designed pages.</p>
-<h2 align="center"><a target="_blank" href="https://pinwheel-astro.vercel.app/" rel="nofollow"> 👀 Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-pinwheel-astro-vercel-app/kmaxqwa7rx?form_factor=desktop"> Page Speed (95+) 🚀 </a>
+# AfesDev - Portafolio de Desarrollo de Software
+
+<p align="center">Portafolio personal de desarrollador full-stack especializado en crear soluciones tecnológicas para pequeñas y grandes empresas.</p>
+
+<h2 align="center">
+  <a href="https://afesdev.com" target="_blank">🌐 Ver Sitio Web</a>
 </h2>
-<p align=center>
-  <a href="https://github.com/withastro/astro/releases/tag/astro%405.14.1" alt="Contributors">
-    <img src="https://img.shields.io/static/v1?label=ASTRO&message=5.14&color=000&logo=astro" />
+
+<p align="center">
+  <a href="https://github.com/withastro/astro/releases/tag/astro%405.14.1">
+    <img src="https://img.shields.io/static/v1?label=ASTRO&message=5.14&color=000&logo=astro" alt="Astro Version" />
   </a>
-
-  <a href="https://github.com/themefisher/pinwheel-astro/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/themefisher/pinwheel-astro" alt="license"></a>
-
-  <img src="https://img.shields.io/github/languages/code-size/themefisher/pinwheel-astro" alt="code size">
-
-  <a href="https://github.com/themefisher/pinwheel-astro/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/themefisher/bigspring-light-astro" alt="contributors"></a>
+  <a href="https://github.com/afesdev/afesdev-portfolio/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/afesdev/afesdev-portfolio" alt="License" />
+  </a>
+  <img src="https://img.shields.io/github/languages/code-size/afesdev/afesdev-portfolio" alt="Code Size" />
 </p>
 
-![pinwheel](https://assets.teamosis.com/thumbs/pinwheel.png)
+## 📌 Sobre el Proyecto
 
-<!-- small description -->
+Este es mi portafolio personal desarrollado con **Astro**, **React**, **TypeScript** y **Tailwind CSS**. El sitio muestra mis proyectos, experiencia y habilidades como desarrollador full-stack, enfocado en crear soluciones para empresas.
 
-<!-- key features -->
+## ✨ Características
 
-## 📌 Key Features
+- 🚀 **Rendimiento Optimizado**: Construido con Astro para máxima velocidad
+- 📱 **Totalmente Responsive**: Diseño adaptativo para todos los dispositivos
+- 🎨 **Diseño Moderno**: Interfaz limpia y profesional
+- 📝 **Gestión de Contenido**: Contenido en Markdown/MDX fácil de editar
+- 🔍 **SEO Optimizado**: Meta tags y estructura optimizada para buscadores
+- ⚡ **Fast by Default**: Puntuación 95+ en Google PageSpeed
+- 🛠️ **Stack Tecnológico Completo**: Muestra las tecnologías que utilizo
 
-- 📄 17+ Pre-designed pages
-- 🎨 Highly customizable (Color, Font, Menu, Social Links, SEO Meta Tags, etc.)
-- 🗃️ Taxonomy support
-- ⚡ Fast by default (95+ Google PageSpeed Score)
-- 🔧 Netlify setting pre-configured
-- 📝 Contact form support
-- 🖼️ Support OG image
-- 📝 Write and update content in Markdown / MDX
-- 💻 MDX components auto import
-- 📝 Includes draft pages and posts
-- 🎨 Built with Tailwind CSS framework
-- 📱 Fully responsive on desktops, tablets, and smartphones
-- 🔍 SEO Friendly
+## 🛠️ Stack Tecnológico
 
-## 📄 17+ Pre-Designed Pages
+### Frontend
 
-- 🏠 Home
-- 🛠️ How it works
-- 🌟 Features
-- 📝 Blog
-- 📝 Blog Single
-- 🗂️ Categories
-- 🗂️ Category Single
-- 👤 About
-- 📞 Contact
-- 💼 Career
-- 💼 Career Single
-- 💰 Pricing
-- 📜 Changelog
-- 🔑 Sign In
-- 🔑 Sign Up
-- 🔗 Integrations
-- 🔗 Integration Single
-- 📜 Terms and Conditions
-- 💡 Elements
+- **Astro** - Framework web moderno
+- **React** - Biblioteca para interfaces de usuario
+- **TypeScript** - Tipado estático
+- **Tailwind CSS** - Framework CSS utility-first
 
-<!-- installation -->
+### Backend & Desarrollo
 
-## 🛠️ Installation
+- **Node.js** / **NestJS** / **Express**
+- **SQL Server** / **MongoDB** / **Firebase**
+- **Flutter** / **Dart** (Mobile)
+- **TypeScript** / **JavaScript** / **C#**
 
-After downloading the template, you need to install some prerequisites. Then you can run it on your localhost. You can view the package.json file to see which scripts are included.
+### DevOps & Herramientas
 
-### Install prerequisites (once for a machine)
+- **Git** / **GitHub**
+- **AWS** / **Firebase**
+- **Docker**
 
-- **Node Installation:** [Install node js](https://nodejs.org/en/download/) [Recommended LTS version]
+## 📄 Páginas Incluidas
 
-### 👨🏻‍💻 Local setup
+- 🏠 **Inicio** - Banner, habilidades, proyectos destacados y testimonios
+- 👤 **Sobre Mí** - Información personal, experiencia y tecnologías
+- 💼 **Proyectos** - Galería de proyectos con detalles completos
+- 📞 **Contacto** - Formulario de contacto
 
-After successfully installing those dependencies, open this template with any IDE [[VS Code](https://code.visualstudio.com/) recommended], and then open the internal terminal of IDM [vs code shortcut <code>ctrl/cmd+\`</code>]
+## 🚀 Instalación y Uso
 
-- 👉 Install dependencies
+### Prerrequisitos
 
+- **Node.js** (versión LTS recomendada): [Descargar Node.js](https://nodejs.org/en/download/)
+
+### Configuración Local
+
+1. **Clonar el repositorio**
+
+   ```bash
+   git clone https://github.com/afesdev/afesdev-portfolio.git
+   cd afesdev-portfolio
+   ```
+
+2. **Instalar dependencias**
+
+   ```bash
+   npm install
+   ```
+
+3. **Ejecutar en desarrollo**
+
+   ```bash
+   npm run dev
+   ```
+
+   El sitio estará disponible en `http://localhost:4321`
+
+4. **Build para producción**
+
+   ```bash
+   npm run build
+   ```
+
+5. **Previsualizar build de producción**
+
+   ```bash
+   npm run preview
+   ```
+
+## 📁 Estructura del Proyecto
+
+```text
+afesdev-portfolio/
+├── public/              # Archivos estáticos (imágenes, etc.)
+├── src/
+│   ├── assets/          # Recursos del proyecto
+│   ├── components/      # Componentes reutilizables
+│   ├── config/          # Archivos de configuración
+│   ├── content/         # Contenido en Markdown/MDX
+│   │   ├── about/       # Contenido de "Sobre Mí"
+│   │   ├── projects/    # Proyectos del portafolio
+│   │   └── homepage/   # Contenido de la homepage
+│   ├── layouts/         # Layouts de página
+│   ├── lib/             # Utilidades y helpers
+│   ├── pages/           # Páginas del sitio
+│   └── styles/          # Estilos CSS
+└── package.json
 ```
-npm install
+
+## 📝 Agregar Nuevos Proyectos
+
+Para agregar un nuevo proyecto, crea un archivo Markdown en `src/content/projects/` con el siguiente formato:
+
+```markdown
+---
+title: "Nombre del Proyecto"
+subtitle: "Descripción breve"
+image: "/images/proyecto/imagen.png"
+date: 2024-01-15T05:00:00Z
+company: "AFESDEV"
+client_type: "mediana"
+technologies: ["React", "Node.js", "TypeScript"]
+categories: ["desarrollo", "web", "full-stack"]
+featured: true
+draft: false
+project_url: "https://ejemplo.com"
+google_play_url: "https://play.google.com/store/apps/details?id=..." # Opcional
+github_url: "" # Opcional
+status: "completado"
+---
+
+## Descripción del Proyecto
+
+Contenido detallado del proyecto en Markdown...
 ```
 
-- 👉 Run locally
+## 🎨 Personalización
 
-```
-npm run dev
-```
+### Configuración Principal
 
-After that, it will open up a preview of the template in your default browser, watch for changes to source files, and live-reload the browser when changes are saved.
+Edita `src/config/config.json` para personalizar:
 
-## 🏗️ Production Build
+- Información del sitio
+- Redes sociales
+- Colores y temas
+- Metadatos SEO
 
-After finishing all the customization, you can create a production build by running this command.
+### Menú de Navegación
 
-```
-npm run build
-```
+Edita `src/config/menu.json` para modificar los enlaces del menú.
 
-<!-- reporting issue -->
+### Contenido
 
-## 🐞 Reporting Issues
+Todo el contenido está en archivos Markdown dentro de `src/content/`:
 
-We use GitHub Issues as the official bug tracker for this Template. Please search [existing issues](https://github.com/themefisher/pinwheel-astro/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/themefisher/pinwheel-astro/issues).
+- `homepage/-index.md` - Contenido de la página de inicio
+- `about/-index.md` - Contenido de "Sobre Mí"
+- `projects/*.md` - Proyectos individuales
 
-<!-- licence -->
+## 📧 Contacto
 
-## 📝 License
+- **Email**: afesdev2025@gmail.com
+- **Portafolio**: <https://afesdev.com>
 
-Copyright (c) 2023 - Present, Designed & Developed by [Themefisher](https://themefisher.com)
+## 📄 Licencia
 
-**Code License:** Released under the [MIT](https://github.com/themefisher/pinwheel-astro/blob/main/LICENSE) license.
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
 
-**Image license:** The images are only for demonstration purposes. They have their license, and we don't have permission to share those images.
+## 🙏 Agradecimientos
 
-## 💻 Need Custom Development Services?
+Este portafolio está basado en el tema [Pinwheel Astro](https://github.com/themefisher/pinwheel-astro) de [Themefisher](https://themefisher.com), adaptado y personalizado para mis necesidades.
 
-Besides developing beautifully designed and blazing-fast themes, we help businesses create fast, performance-focused, scalable & secure websites based on NextJS, Hugo, Astro, etc.
+---
 
-If you need custom theme development, theme customization, or complete website development services from scratch, you can [Hire Us](https://themefisher.com/contact).
-
-## 🔥 More Astro Themes By Themefisher
-
-| [![Bigpsring](https://assets.teamosis.com/thumbs/bigspring.png)](https://themefisher.com/products/bigspring-light-astro) | [![Andromeda](https://assets.teamosis.com/thumbs/andromeda.png)](https://themefisher.com/products/andromeda-astro) | [![Bookwrom](https://assets.teamosis.com/thumbs/bookworm.png)](https://themefisher.com/products/bookworm-astro) |
-| :-----------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: |
-|                                                       **Bigpsring Light**                                                       |                                                       **Andromeda**                                                       |                                                   **Bookwom Light**                                                    |
+## 👨‍💻 Desarrollado con ❤️ por AfesDev

@@ -2,7 +2,7 @@
 title: "MenuQR"
 subtitle: "Sistema completo de gestión de menús digitales para restaurantes con pedidos en tiempo real y códigos QR"
 image: "/images/MenuQR/menuqr-img1.png"
-date: 2024-06-01T05:00:00Z
+date: 2025-12-21T05:00:00Z
 company: "AFESDEV"
 client_type: "mediana"
 technologies: ["TypeScript", "React", "Node.js", "Express", "SQL Server", "TypeORM", "Socket.io", "Stripe", "Wompi", "Firebase", "Tailwind CSS", "Vite"]

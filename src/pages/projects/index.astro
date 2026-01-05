@@ -1,0 +1,43 @@
+---
+import Projects from "@/components/projects/Projects.astro";
+import PageHeader from "@/components/PageHeader.astro";
+import Shape from "@/components/Shape.astro";
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import Pagination from "@/layouts/components/Pagination.astro";
+import Cta from "@/layouts/partials/Cta.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { getTaxonomy } from "@/lib/taxonomyParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
+
+const projectsIndex = (await getEntry("projects", "-index")) as CollectionEntry<"projects">;
+const projects = await getSinglePage("projects");
+const categories = await getTaxonomy("projects", "categories");
+const sortedProjects = sortByDate(projects);
+const totalPages = Math.ceil(sortedProjects.length / config.settings.pagination);
+const currentProjects = sortedProjects.slice(0, config.settings.pagination);
+---
+
+<Base
+  title={projectsIndex.data.title}
+  meta_title={projectsIndex.data.meta_title}
+  description={projectsIndex.data.description}
+  image={projectsIndex.data.image}
+>
+  <Shape />
+  <section class="page-hero pt-16">
+    <div class="container">
+      <PageHeader page_data={projectsIndex.data} />
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <Projects projects={currentProjects} />
+      <Pagination section={"projects"} currentPage={1} totalPages={totalPages} />
+    </div>
+  </section>
+  <Cta />
+</Base>
+

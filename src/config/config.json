@@ -1,0 +1,47 @@
+{
+  "site": {
+    "title": "AfesDev",
+    "base_url": "https://tu-dominio.com",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "147",
+    "logo_height": "31",
+    "logo_text": "AfesDev"
+  },
+
+  "settings": {
+    "pagination": 6,
+    "summary_length": 100
+  },
+
+  "google_tag_manager": {
+    "enable": false,
+    "gtm_id": "GTM-XXXXXX"
+  },
+
+  "call_to_action": {
+    "title": "¿Tienes un proyecto en mente?",
+    "description": "Trabajemos juntos para hacer realidad tu idea. Especializado en desarrollo de software para pequeñas y grandes empresas.",
+    "button": {
+      "label": "Contáctame",
+      "link": "/contact"
+    }
+  },
+
+  "params": {
+    "footer_description": "Desarrollador especializado en crear soluciones tecnológicas para empresas. Transformando ideas en productos digitales exitosos.",
+    "email": "afesdev2025@gmail.com",
+    "location": "Montería, Córdoba, Colombia",
+    "phone": "+57 3245708137",
+    "contact_form_action": "#",
+    "copyright": "Copyright © 2025 - Todos los derechos reservados"
+  },
+
+  "metadata": {
+    "meta_author": "AfesDev",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "AfesDev - Portafolio de desarrollo de software para empresas. Proyectos y experiencia en desarrollo full-stack."
+  }
+}

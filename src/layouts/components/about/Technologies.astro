@@ -1,0 +1,61 @@
+---
+import { markdownify } from "@/lib/utils/textConverter";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  technologies: CollectionEntry<"about">["data"]["technologies"];
+};
+
+const { technologies } = Astro.props;
+
+if (!technologies) {
+  return null;
+}
+
+const { title, description, technologies_list } = technologies;
+
+// Group technologies by category
+const groupedByCategory = technologies_list.reduce((acc, tech) => {
+  const category = tech.category || "Otros";
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  acc[category].push(tech);
+  return acc;
+}, {} as Record<string, typeof technologies_list>);
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row justify-center text-center">
+      <div class="lg:col-8">
+        <h2 set:html={markdownify(title)} />
+        {description && (
+          <p class="mt-4 text-text" set:html={markdownify(description)} />
+        )}
+      </div>
+    </div>
+    
+    <div class="row mt-12">
+      {
+        Object.entries(groupedByCategory).map(([category, techs]) => (
+          <div class="mb-8 sm:col-6 lg:col-4">
+            <div class="rounded-xl bg-white p-6 shadow-lg lg:p-8">
+              <h4 class="mb-4 text-lg font-semibold text-text-dark">{category}</h4>
+              <div class="flex flex-wrap gap-2">
+                {
+                  techs.map((tech) => (
+                    <span class="inline-block rounded-full bg-light px-4 py-2 text-sm text-text-dark">
+                      {tech.name}
+                    </span>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+

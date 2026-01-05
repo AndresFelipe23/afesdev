@@ -1,0 +1,125 @@
+---
+import dateFormat from "@/lib/utils/dateFormat";
+import { humanize, slugify } from "@/lib/utils/textConverter";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import {
+  FaRegCalendarAlt,
+  FaRegFolder,
+  FaRegUserCircle,
+  FaLink,
+  FaGithub,
+} from "react-icons/fa";
+
+type Props = {
+  project: CollectionEntry<"projects">;
+};
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<section class="section blog-single">
+  <div class="container">
+    <div class="row justify-center">
+      <div class="lg:col-10">
+        <Image
+          class="rounded-xl object-cover w-full"
+          src={project.data.image!}
+          alt={project.data.title}
+          width={920}
+          height={600}
+        />
+      </div>
+      <div class="mt-10 max-w-[810px] lg:col-9">
+        <h1 class="h2">
+          {project.data.title}
+        </h1>
+        {project.data.subtitle && (
+          <p class="mt-4 text-lg text-text">{project.data.subtitle}</p>
+        )}
+        <div class="mb-5 mt-6 flex items-center space-x-2">
+          <ul class="mb-4">
+            {project.data.date && (
+              <li class="mr-4 inline-block">
+                <FaRegCalendarAlt className={"mr-2 -mt-1 inline-block"} />
+                {dateFormat(project.data.date!)}
+              </li>
+            )}
+
+            {project.data.company && (
+              <li class="mr-4 inline-block">
+                <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
+                {project.data.company}
+              </li>
+            )}
+
+            {project.data.client_type && (
+              <li class="mr-4 inline-block">
+                <span class="mr-2">Cliente:</span>
+                {humanize(project.data.client_type)}
+              </li>
+            )}
+
+            {project.data.categories && project.data.categories.length > 0 && (
+              <li class="mr-4 inline-block">
+                <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
+                {
+                  project.data.categories.map((category, index) => (
+                    <span>
+                      {humanize(category)}
+                      {index !== project.data.categories.length - 1 && ","}
+                    </span>
+                  ))
+                }
+              </li>
+            )}
+
+            {project.data.status && (
+              <li class="mr-4 inline-block">
+                <span class={`mr-2 ${
+                  project.data.status === 'completado' ? 'text-green-600' : 
+                  project.data.status === 'en-progreso' ? 'text-blue-600' : 
+                  'text-gray-600'
+                }`}>
+                  Estado: {humanize(project.data.status)}
+                </span>
+              </li>
+            )}
+          </ul>
+        </div>
+
+        {project.data.technologies && project.data.technologies.length > 0 && (
+          <div class="mb-6 flex flex-wrap gap-2">
+            <span class="mr-2 font-semibold">Tecnologías:</span>
+            {project.data.technologies.map((tech) => (
+              <span class="rounded-full bg-light px-3 py-1 text-sm text-text">
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {(project.data.google_play_url || project.data.project_url) && (
+          <div class="mb-6">
+            <a
+              href={project.data.google_play_url || project.data.project_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn inline-flex items-center justify-center rounded-[50px] border-0 bg-primary px-8 py-2 text-sm font-medium text-white hover:opacity-90 transition-all duration-200"
+            >
+              <FaLink className="mr-2" />
+              {project.data.google_play_url ? "Ver en Google Play" : "Ver sitio web"}
+            </a>
+          </div>
+        )}
+
+        <div class="content">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

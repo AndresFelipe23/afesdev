@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+
+type Props = {
+  images: string[];
+  alt: string;
+  size?: "small" | "medium" | "large";
+  rounded?: "top" | "all" | "none";
+};
+
+const { images, alt, size = "medium", rounded = "top" } = Astro.props;
+const carouselId = `carousel-${Math.random().toString(36).substring(7)}`;
+
+const sizeClasses = {
+  small: "h-48",
+  medium: "h-64",
+  large: "h-[400px]"
+};
+
+const dimensions = {
+  small: { width: 400, height: 300 },
+  medium: { width: 600, height: 400 },
+  large: { width: 920, height: 600 }
+};
+
+const roundedClasses = {
+  top: "rounded-t-xl",
+  all: "rounded-xl",
+  none: ""
+};
+---
+
+<div class={`carousel-container relative overflow-hidden ${roundedClasses[rounded]}`} data-carousel-id={carouselId}>
+  <div class="carousel-track flex transition-transform duration-300 ease-in-out">
+    {images.map((img, index) => (
+      <div class="carousel-slide min-w-full">
+        <Image
+          class={`w-full ${sizeClasses[size]} object-cover`}
+          width={dimensions[size].width}
+          height={dimensions[size].height}
+          src={img}
+          alt={`${alt} - imagen ${index + 1}`}
+        />
+      </div>
+    ))}
+  </div>
+  
+  {images.length > 1 && (
+    <>
+      <!-- Navigation Arrows -->
+      <button 
+        class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full w-8 h-8 flex items-center justify-center transition-all"
+        aria-label="Imagen anterior"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button 
+        class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full w-8 h-8 flex items-center justify-center transition-all"
+        aria-label="Imagen siguiente"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+      
+      <!-- Indicators -->
+      <div class="carousel-indicators absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+        {images.map((_, index) => (
+          <button 
+            class={`w-2 h-2 rounded-full transition-all ${index === 0 ? 'bg-white' : 'bg-white/50'}`}
+            data-slide={index}
+            aria-label={`Ir a imagen ${index + 1}`}
+          />
+        ))}
+      </div>
+    </>
+  )}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel-container');
+    
+    carousels.forEach(carousel => {
+      const track = carousel.querySelector('.carousel-track') as HTMLElement;
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const prevBtn = carousel.querySelector('.carousel-prev');
+      const nextBtn = carousel.querySelector('.carousel-next');
+      const indicators = carousel.querySelectorAll('.carousel-indicators button');
+      
+      if (!track || slides.length <= 1) return;
+      
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+      
+      const updateCarousel = () => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('bg-white', index === currentIndex);
+          indicator.classList.toggle('bg-white/50', index !== currentIndex);
+        });
+      };
+      
+      const goToSlide = (index: number) => {
+        currentIndex = (index + totalSlides) % totalSlides;
+        updateCarousel();
+      };
+      
+      prevBtn?.addEventListener('click', () => goToSlide(currentIndex - 1));
+      nextBtn?.addEventListener('click', () => goToSlide(currentIndex + 1));
+      
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => goToSlide(index));
+      });
+      
+      // Auto-play
+      let autoPlay = setInterval(() => goToSlide(currentIndex + 1), 4000);
+      
+      carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+      carousel.addEventListener('mouseleave', () => {
+        autoPlay = setInterval(() => goToSlide(currentIndex + 1), 4000);
+      });
+    });
+  });
+</script>
+
+<style>
+  .carousel-container:hover .carousel-prev,
+  .carousel-container:hover .carousel-next {
+    opacity: 1;
+  }
+  
+  .carousel-prev,
+  .carousel-next {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+</style>

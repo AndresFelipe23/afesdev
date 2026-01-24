@@ -2,6 +2,10 @@
 title: "Sistema de Gestión de Tickets"
 subtitle: "Sistema completo de gestión de tickets con arquitectura moderna, backend y frontend separados, base de conocimiento, tableros Kanban y sistema robusto de roles y permisos"
 image: "/images/SistemaTicket/st-1.png"
+images:
+  - "/images/SistemaTicket/st-1.png"
+  - "/images/SistemaTicket/st-2.png"
+  - "/images/SistemaTicket/st-3.png"
 date: 2024-12-01T05:00:00Z
 company: "AFESDEV"
 client_type: "grande"

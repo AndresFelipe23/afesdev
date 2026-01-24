@@ -2,8 +2,8 @@
 import config from "@/config/config.json";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import ImageCarousel from "./ImageCarousel.astro";
 const { summary_length } = config.settings;
 
 type Props = {
@@ -14,23 +14,22 @@ const { projects } = Astro.props;
 
 <div class="row">
   {
-    projects.map((item) => (
+    projects.map((item) => {
+      // Use images array if available, otherwise create array from single image
+      const projectImages = item.data.images && item.data.images.length > 0 
+        ? item.data.images 
+        : item.data.image ? [item.data.image] : [];
+      return (
       <div class="mb-8 md:col-6 lg:col-4">
         <div class="card overflow-hidden p-0 flex flex-col">
-          <div class="relative">
-            <Image
-              class="card-img object-cover w-full rounded-t-xl"
-              width={400}
-              height={300}
-              src={item.data.image!}
-              alt={item.data.title}
-            />
-          </div>
+          {projectImages.length > 0 && (
+            <ImageCarousel images={projectImages} alt={item.data.title} size="medium" />
+          )}
           <div class="card-content p-5 flex-1">
-            <h3 class="h4 card-title mb-2">
+            <h3 class="h4 card-title mb-6">
               <a href={`/projects/${item.id}`}>{item.data.title}</a>
             </h3>
-            <div class="card-tags space-x-1 mb-4">
+            <div class="card-tags flex flex-wrap gap-2 mb-4 mt-4">
               {item.data.categories.map((category) => (
                 <span class="tag">
                   {humanize(category)}
@@ -99,7 +98,7 @@ const { projects } = Astro.props;
           </div>
         </div>
       </div>
-    ))
+    );})
   }
 </div>
 

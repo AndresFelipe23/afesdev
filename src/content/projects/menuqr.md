@@ -2,6 +2,10 @@
 title: "MenuQR"
 subtitle: "Sistema completo de gestión de menús digitales para restaurantes con pedidos en tiempo real y códigos QR"
 image: "/images/MenuQR/menuqr-img1.png"
+images:
+  - "/images/MenuQR/menuqr-img1.png"
+  - "/images/MenuQR/menuqr-img2.png"
+  - "/images/MenuQR/menuqr-img3.png"
 date: 2025-12-21T05:00:00Z
 company: "AFESDEV"
 client_type: "mediana"

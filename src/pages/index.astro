@@ -25,7 +25,6 @@ const featuredProjects = sortedProjects.filter((item) => item.data.featured).sli
 
 <Base>
   <Banner banner={banner} />
-  <KeyFeatures key_features={key_features} />
   {featuredProjects.length > 0 && (
     <section class="section">
       <div class="container">
@@ -33,6 +32,7 @@ const featuredProjects = sortedProjects.filter((item) => item.data.featured).sli
       </div>
     </section>
   )}
+  <KeyFeatures key_features={key_features} />
   {(service.homepage_tab.title || service.our_service.length > 0) && (
     <Service service={service} />
   )}

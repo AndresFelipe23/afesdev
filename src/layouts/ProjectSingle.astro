@@ -1,7 +1,6 @@
 ---
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, slugify } from "@/lib/utils/textConverter";
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import {
@@ -11,6 +10,7 @@ import {
   FaLink,
   FaGithub,
 } from "react-icons/fa";
+import ImageCarousel from "./components/projects/ImageCarousel.astro";
 
 type Props = {
   project: CollectionEntry<"projects">;
@@ -18,19 +18,20 @@ type Props = {
 
 const { project } = Astro.props;
 const { Content } = await render(project);
+
+// Use images array if available, otherwise create array from single image
+const projectImages = project.data.images && project.data.images.length > 0 
+  ? project.data.images 
+  : project.data.image ? [project.data.image] : [];
 ---
 
 <section class="section blog-single">
   <div class="container">
     <div class="row justify-center">
       <div class="lg:col-10">
-        <Image
-          class="rounded-xl object-cover w-full"
-          src={project.data.image!}
-          alt={project.data.title}
-          width={920}
-          height={600}
-        />
+        {projectImages.length > 0 && (
+          <ImageCarousel images={projectImages} alt={project.data.title} size="large" rounded="all" />
+        )}
       </div>
       <div class="mt-10 max-w-[810px] lg:col-9">
         <h1 class="h2">

@@ -435,6 +435,7 @@ const projectsCollection = defineCollection({
     description: z.string().optional(),
     date: z.date().optional(),
     image: z.string().optional(),
+    images: z.array(z.string()).optional(), // Array de imágenes para carrusel
     company: z.string().optional(),
     client_type: z.enum(["pequeña", "mediana", "grande", "startup", "personal"]).optional(),
     technologies: z.array(z.string()).default([]),
